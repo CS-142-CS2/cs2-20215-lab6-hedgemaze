@@ -1,5 +1,7 @@
 package maze;
 
+import java.io.IOException;
+
 /**
  * Hedge Maze graph-search lab main program
  *
@@ -10,12 +12,10 @@ public class PotOfGold {
 
     /** If there is a problem with the format of the command line */
     public static final int CMD_LINE_ERROR = 1;
-    /** If the maze file cannot be opened */
-    public static final int MAZE_FILE_NOT_FOUND = 2;
-    /** If the program is unable to decipher the content of the maze file */
-    public static final int MAZE_FILE_CONTENT_ERROR = 3;
-    /** If the program is unable to decipher the user's input (coordinates) */
-    public static final int USER_INPUT_ERROR = 4;
+    /** If the maze file cannot be read */
+    public static final int MAZE_FILE_ERROR = 2;
+    /** If console input causes an {@link IOException} */
+    public static final int USER_INPUT_ERROR = 3;
 
     /** What the user types to end the program, instead of new coordinates */
     public static final String USER_DONE = "quit";
@@ -32,9 +32,11 @@ public class PotOfGold {
      *
      * If anything goes wrong with the file input, or if the program
      * is unable to read data from standard input (the console), the
-     * program exits with a non-zero error code. ({@link System#exit(int)})
+     * program exits with a non-zero error code.
+     * Error codes are given as static constants in this class.
      *
      * @param args [0]: name of hedge maze description file
+     * @see System#exit(int)
      */
     public static void main( String[] args ) {
         if ( args.length != 1 ) {

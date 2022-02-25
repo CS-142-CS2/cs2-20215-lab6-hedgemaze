@@ -1,9 +1,7 @@
 package maze;
 
-import java.util.Collection;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Collection;
 
 /**
  * A coordinate-based graph of nodes to represent a maze laid on a 2-D
@@ -32,13 +30,12 @@ public class HedgeMaze extends GridGraph {
      * Create a graph by reading a file. Details can be found in the lab
      * writeup.
      * @param fileName location of maze specification
-     * @throws FileNotFoundException if file named does not exist
-     * @throws IOException if there is something else wrong with the file
+     * @throws IOException if the file can't be read for any reason
+     * @rit.pre The format of the file is without errors.
      * @rit.post Graph and Nodes are fully formed with all connections as
      *           specified in the file.
      */
-    public HedgeMaze( String fileName )
-            throws FileNotFoundException, IOException {
+    public HedgeMaze( String fileName ) throws IOException {
         // TODO Additional code here
     }
 
@@ -60,7 +57,7 @@ public class HedgeMaze extends GridGraph {
 
     /**
      * {@inheritDoc}
-     * @rit.pre this.contains( r1, c1 ) && this.contains( r2, c2 )
+     * @rit.pre this.contains( r1, c1 ) and this.contains( r2, c2 )
      */
     @Override
     public boolean connected( int r1, int c1, int r2, int c2 ) {
